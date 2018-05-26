@@ -47,7 +47,6 @@ class UserService {
     getUserFollowers(username) {
         return __awaiter(this, void 0, void 0, function* () {
             this._defaultOptions['url'] = this._userUrl + username + '/followers?' + this._authParams;
-            console.log(this._defaultOptions['url']);
             return new Promise((resolve, reject) => {
                 request.get(this._defaultOptions, (err, resp, body) => {
                     if (err) {

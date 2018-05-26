@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const compression = require("compression");
 const masterRouter = require("./routes/index");
 class App {
     constructor() {
@@ -10,6 +11,7 @@ class App {
         this.express.use(bodyParser.urlencoded({
             extended: false
         }));
+        this.express.use(compression());
         this.mountRoutes();
     }
     mountRoutes() {
