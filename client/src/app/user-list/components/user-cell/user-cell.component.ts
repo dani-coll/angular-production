@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-user-cell',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-cell.component.less']
 })
 export class UserCellComponent implements OnInit {
-
+  @Input() user: User;
   constructor() { }
 
   ngOnInit() {

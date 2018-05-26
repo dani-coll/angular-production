@@ -1,3 +1,27 @@
-<div class="user-list">
-  <app-search-bar></app-search-bar>
-</div>
+<section class="user-list">
+  <app-search-bar 		
+    (onSearch)="loadUsers($event)"
+  ></app-search-bar>
+  <div 
+    class="welcome-message" 
+    *ngIf="!users"
+    >
+      <h1>Welcome to my custom Github user search engine</h1>
+      <p>Use the search bar to find the one you want</p>
+  </div>
+  <div 
+    *ngIf="users" 
+    class="cells"
+  >
+    <p 
+      *ngIf="users.length === 0" 
+      class="not-found"
+    >
+      No users have been found matching the username provided
+    </p>
+    <app-user-cell 
+      *ngFor="let user of users" 
+      [user]="user" 
+    ></app-user-cell>
+  </div>
+</section>

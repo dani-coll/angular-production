@@ -1,0 +1,57 @@
+.user-detail {
+    transition: opacity 0.5 ease-in-out;
+    box-shadow: 0 3px 6px 3px rgba(0, 0, 0, 0.2);
+    margin: 30px;
+    .main-info {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .avatar-container {
+        flex: 1;
+        margin: 20px;
+
+        img {
+            width: 100%;
+        }     
+    }
+
+    .details {
+        flex: 1;
+        margin: 40px;
+
+        .location {
+            font-size: 1em;
+            font-weight: bold;
+            margin: 5px 0px;
+        }
+    
+    }
+
+    .secondary-info {
+        display: flex;
+        flex-wrap: wrap;
+
+        a {
+            word-break: break-all;
+        }
+    }
+
+    .followers {
+        padding: 30px;
+        flex: 1;
+    }
+
+    .repos {
+        padding: 30px;
+        flex: 1;
+    }
+
+
+    @media screen and (max-width: 800px) {
+        .avatar-container {
+            flex: none;
+
+            width: calc(~"100% - 40px");
+        }
+    }
+}

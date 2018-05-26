@@ -1,3 +1,12 @@
-<div class="user-cell">
-  
+<div 
+    class="user-cell"
+    [routerLink]="['/user/' , user.login]"
+>
+    <img 
+        class="avatar"
+        src="{{user.avatar_url}}" 
+    />
+    <div class="username">
+        {{user.login}}
+    </div>
 </div>

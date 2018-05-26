@@ -7,7 +7,7 @@ import { UserDetailComponent } from './user-detail.component';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path: ':id', component: UserDetailComponent}
+      {path: ':username', component: UserDetailComponent}
     ]),
   ],
   declarations: [UserDetailComponent]

@@ -33,10 +33,17 @@ export class ApiService {
             .catch(error => this._handleError(error));
     }
 
-    getUser(username): Promise<User> {
+    getUserRepos(username) {
+        return this._get('user/' + username + '/repos');
+    }
+    getUserFollowers(username) {
+        return this._get('user/' + username + '/followers');
+    }
+    getUser(username) {
         return this._get('user/' + username);
     }
-    getUsers(username): Promise<Array<User>>  {
-        return this._get('users?username=' + username);
+    getUsers(username) {
+        return this._get('users?username=' + username)
+                   .then( response => (<any>response).users);
     }
 }
