@@ -1,5 +1,6 @@
 import * as express from 'express'
 import * as bodyParser from 'body-parser'
+import * as path from 'path'
 
 import * as masterRouter from './routes/index'
 
@@ -15,7 +16,13 @@ class App {
 	}
 
 	private mountRoutes(): void {
+		this.express.use(express.static(path.join(__dirname, 'client-dist')))
+
 		this.express.use('/api', masterRouter)
+
+		this.express.use((req, res) => {
+			res.sendFile(path.join(__dirname , './client-dist/index.html'));
+		})
 	}
 }
 

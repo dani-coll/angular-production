@@ -36,7 +36,6 @@ class UserService {
 
 	async getUserFollowers(username): Promise<User> {
 		this._defaultOptions['url'] = this._userUrl + username + '/followers?' + this._authParams
-		console.log(this._defaultOptions['url'])
 		return new Promise<User>((resolve, reject) => {
 			request.get(this._defaultOptions, (err, resp, body) => {
 			  if (err) {

@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SearchBarComponent implements OnInit {
   searchText = '';
   isLoading = false;
-ç  @Output() onSearch: EventEmitter<User[]> = new EventEmitter();
+  @Output() onSearch: EventEmitter<User[]> = new EventEmitter();
 
   constructor(
     private _apiService: ApiService,
