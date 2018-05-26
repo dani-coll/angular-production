@@ -2,5 +2,7 @@
   <input 
     type="text" 
     placeholder="Search by username" 
+    [(ngModel)]="searchText"
+    (ngModelChange)="onValueChanged()"
   />
 </div>
