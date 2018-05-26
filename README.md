@@ -8,6 +8,9 @@ Execute npm run build command on the client folder
 Execute npm run build command on the server folder
 
 Your app is now ready to be deployed to a production environment
+`
+    git subtree push --prefix server heroku master
+`
 
 ## Browser support
 IE 11
