@@ -1,6 +1,6 @@
 {
     "name": "Github search engine",
-    "short_name": "githubSearch",
+    "short_name": "gitSearch",
     "description": "Github search engine built with angular",  
     "icons": [{
       "src": "assets/github-128.png",

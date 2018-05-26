@@ -4,13 +4,12 @@
     class="github-icon" 
     src="assets/github-icon.png" 
   />
-  <label for="searchinput">
-    <input 
-      type="text" 
-      name="searchinput"
-      placeholder="Search by username" 
-      [(ngModel)]="searchText"
-      (ngModelChange)="onValueChanged()"
-    />
-  </label>
+  <input 
+    type="text" 
+    id="searchinput"
+    name="searchinput"
+    placeholder="Search by username" 
+    [(ngModel)]="searchText"
+    (ngModelChange)="onValueChanged()"
+  />
 </div>
