@@ -1,33 +1,36 @@
-<article *ngIf="user.login" class="user-detail">
-  <section class="main-info">
-      <div class="avatar-container">
-          <img 
-            alt="user_avatar"
-            class="avatar" 
-            src="{{user.avatar_url}}" 
-          />
+<article class="user-detail">
+  <div *ngIf="user.login" class="content">
+    <section class="main-info">
+        <div class="avatar-container">
+            <img 
+              alt="user_avatar"
+              class="avatar" 
+              src="{{user.avatar_url}}" 
+            />
+          </div>
+          <div class="details">
+            <h1 class="name">
+                {{user.name}} <a href="{{user.html_url}}">[{{user.login}}]</a>
+            </h1>
+            <div *ngIf="user.company" class="location">Company: {{user.company}}</div>
+            <div *ngIf="user.location" class="location">Location: {{user.location}}</div>
+            <p class="bio" >{{user.bio}}</p>
+          </div>
+    </section>
+    <section class="secondary-info">
+      <div *ngIf="followers" class="items">
+        <h1 class="title">Followers ({{user.followers}})</h1>
+        <div class="item" *ngFor="let follower of followers">
+          <a [routerLink]="['/user', follower.login]">{{follower.login}}</a>
         </div>
-        <div class="details">
-          <h1 class="name">
-              {{user.name}} <a href="{{user.html_url}}">[{{user.login}}]</a>
-          </h1>
-          <div *ngIf="user.company" class="location">Company: {{user.company}}</div>
-          <div *ngIf="user.location" class="location">Location: {{user.location}}</div>
-          <p class="bio" >{{user.bio}}</p>
+      </div>
+      <div *ngIf="repos" class="items">
+        <h1 class="title">Repositories ({{user.public_repos}})</h1>
+        <div class="item" *ngFor="let repo of repos">
+          <a href="{{repo.html_url}}">{{repo.full_name}}</a>
         </div>
-  </section>
-  <section class="secondary-info">
-    <div *ngIf="followers" class="followers">
-      <h1 class="title">Followers ({{user.followers}})</h1>
-      <div class="follower" *ngFor="let follower of followers">
-        <a [routerLink]="['/user', follower.login]">{{follower.login}}</a>
       </div>
-    </div>
-    <div *ngIf="repos" class="repos">
-      <h1 class="title">Repositories ({{user.public_repos}})</h1>
-      <div class="repo" *ngFor="let repo of repos">
-        <a href="{{repo.html_url}}">{{repo.full_name}}</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
+  <img *ngIf="isLoading" class="loader" src="assets/loader.png" />
 </article>

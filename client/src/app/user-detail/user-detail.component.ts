@@ -13,7 +13,7 @@ export class UserDetailComponent implements OnInit {
   user: User = new User();
   followers: User[] = new Array<User>();
   repos: Repo[] = new Array<Repo>();
-
+  isLoading = false;
   constructor(
     private _apiService: ApiService,
     private _activatedRoute: ActivatedRoute
@@ -23,10 +23,12 @@ export class UserDetailComponent implements OnInit {
     this._activatedRoute.params.subscribe(params => {
       if (params.username) {
         this.user = new User();
-        this.followers = [];
-        this.repos = [];
+        this.followers = undefined;
+        this.repos = undefined;
+        this.isLoading = true;
         this._apiService.getUser(params.username).then( user => {
           this.user = user;
+          this.isLoading = false;
           this._apiService.getUserFollowers(this.user.login)
           .then( (response) => this.followers = response.followers);
           this._apiService.getUserRepos(this.user.login)

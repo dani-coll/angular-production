@@ -12,4 +12,5 @@
     [(ngModel)]="searchText"
     (ngModelChange)="onValueChanged()"
   />
+  <img *ngIf="isLoading" class="loader" src="assets/mini-loader.png" />
 </div>
